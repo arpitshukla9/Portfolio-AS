@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@font-face {
+  font-family: 'RoxboroughCF';
+  src: url('/fonts/RoxboroughCF-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RoxboroughCF';
+  src: url('/fonts/RoxboroughCF-DemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RoxboroughCF';
+  src: url('/fonts/RoxboroughCF-DemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Virgil';
+  src: url('/fonts/Virgil.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.handwritten {
+  font-family: 'Virgil', sans-serif;
+}
+@keyframes shimmer {
+  to {
+    --shimmer-angle: 360deg;
+  }
+}
+
+.group:hover {
+  animation: shimmer 3s linear infinite;
+}
