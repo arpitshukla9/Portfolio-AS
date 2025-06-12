@@ -1,30 +1,46 @@
-# Node modules
+# === Node.js ===
 node_modules/
-
-# Build output
-dist/
-build/
-dist-ssr/
-
-# Environment variables
-.env
-*.local
-
-# Logs
-logs/
-*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-# System files
+# === Logs ===
+logs
+*.log
+*.log.*
+log/
+
+# === dotenv environment files ===
+.env
+.env.local
+.env.*.local
+
+# === Vite/React/CRA output ===
+client/dist/
+client/build/
+
+# === Optional System Files ===
 .DS_Store
 Thumbs.db
 
-# Editor settings
+# === VSCode ===
 .vscode/
+
+# === Render/Vercel config caches ===
+.vercel/
+.render/
+
+# === Coverage/testing ===
+coverage/
+
+# === Build and Cache ===
+.cache/
+*.tsbuildinfo
+temp/
+tmp/
+
+# === IDE files ===
 .idea/
 *.suo
 *.ntvs*
@@ -32,32 +48,8 @@ Thumbs.db
 *.sln
 *.sw?
 
-# Optional: keep some VSCode settings
-!.vscode/extensions.json
-# Node modules
-node_modules/
-
-# Environment variables
-.env
-
-# Logs
-logs/
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Runtime
-dist/
-build/
-
-# System files
-.DS_Store
-Thumbs.db
-
-# Optional: VS Code settings
-.vscode/
-
-# Optional: OS-specific
-.idea/
-*.swp
+# === Server (Express) ===
+server/node_modules/
+server/.env
+server/logs/
+server/uploads/
