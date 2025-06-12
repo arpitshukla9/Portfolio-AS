@@ -110,7 +110,7 @@ const ContactUs = () => {
   };
 
   const submitToBackend = async (data) => {
-   const response = await fetch('https://arpitshukla-portfolio.onrender.com/api/contact', {
+   const response = await fetch('https://portfolio-as.onrender.com/api/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
