@@ -38,7 +38,7 @@ const CollabForm = () => {
     console.log("Sending data:", formData)
 
     try {
-      const response = await fetch('https://arpit-portfolio-hrd9.onrender.com/api/collaborate', {
+      const response = await fetch('https://arpitshukla-portfolio.onrender.com/api/collaborate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
