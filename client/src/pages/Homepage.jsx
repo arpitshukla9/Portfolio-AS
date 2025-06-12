@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/Navbar.jsx";
+import Navbar from "../components/Header.jsx";
 import Body from "../components/body.jsx";
 import ContactForm from "../components/Contact.jsx";
 import Work from "../components/Work.jsx";
