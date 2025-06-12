@@ -19,6 +19,7 @@ const SurpriseModal = () => {
      const data = await res.json();
      setQuote({ content: data.content, author: data.author });
    } catch (err) {
+    
      setQuote({ content: "Couldn't fetch motivation 😞 Try again!", author: "System" });
    } finally {
      setLoading(false);
