@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle.jsx";
 import SurpriseModal from "./ui/surprise-qoute.jsx";
 
-function Navbar() {
+function Header() {
   const [activeItem, setActiveItem] = useState("home");
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -216,4 +216,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Header;
