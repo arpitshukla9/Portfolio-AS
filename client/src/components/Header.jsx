@@ -31,7 +31,10 @@ function Header() {
         if (section) {
           const sectionTop = section.offsetTop;
           const sectionHeight = section.offsetHeight;
-          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          if (
+            scrollPosition >= sectionTop &&
+            scrollPosition < sectionTop + sectionHeight
+          ) {
             setActiveItem(item.id);
             break;
           }
@@ -61,7 +64,7 @@ function Header() {
       setTimeout(() => {
         window.scrollTo({
           top: element.offsetTop - 80,
-          behavior: "smooth"
+          behavior: "smooth",
         });
       }, 300);
     } else {
@@ -136,7 +139,11 @@ function Header() {
             <div className="hidden lg:block">
               <ThemeToggle />
             </div>
-            <motion.div className="lg:hidden" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            <motion.div
+              className="lg:hidden"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-2.5 rounded-xl bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border border-white/20 dark:border-gray-700/20 shadow-lg hover:shadow-xl transition-all duration-300"
@@ -207,6 +214,10 @@ function Header() {
                     </button>
                   </motion.li>
                 ))}
+
+                <li className="mt-3 px-4">
+                  <ThemeToggle />
+                </li>
               </motion.ul>
             </motion.div>
           )}
