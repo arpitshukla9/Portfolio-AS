@@ -1,6 +1,6 @@
 import React from "react";
 import ThinkCard from "./ui/thinkCard";
-import '../components/ui/thinkingCard.css';
+import '../components/ui/thinkingcard.css';
 
 const Thinking = () => {
   return (
