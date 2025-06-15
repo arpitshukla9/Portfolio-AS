@@ -2,29 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
+/* Fonts */
 @font-face {
   font-family: 'RoxboroughCF';
   src: url('/fonts/RoxboroughCF-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'RoxboroughCF';
   src: url('/fonts/RoxboroughCF-DemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'RoxboroughCF';
   src: url('/fonts/RoxboroughCF-DemiBoldItalic.ttf') format('truetype');
   font-weight: 600;
   font-style: italic;
 }
-
 @font-face {
   font-family: 'Virgil';
   src: url('/fonts/Virgil.woff2') format('woff2');
@@ -32,16 +28,58 @@
   font-style: normal;
   font-display: swap;
 }
-
 .handwritten {
   font-family: 'Virgil', sans-serif;
 }
+
+/* Shimmer animation – safe */
 @keyframes shimmer {
   to {
     --shimmer-angle: 360deg;
   }
 }
-
 .group:hover {
   animation: shimmer 3s linear infinite;
+}
+
+/* Text gradient utility */
+@layer utilities {
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Color theme variables */
+:root {
+  --color-base: #ffffff;
+  --color-muted: #f9fafb;
+  --color-border: #e5e7eb;
+  --color-card: rgba(255, 255, 255, 0.6);
+  --color-heading: #0b0b0f;
+  --color-text: #1f2937;
+  --color-accent: #6366f1;
+  --color-accent-glow: #a5b4fc;
+  --color-gradient: linear-gradient(135deg, #e0e7ff, #f0fdfa);
+  --glass-blur: blur(14px);
+  --glass-bg: rgba(255, 255, 255, 0.35);
+  --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.4);
+  --shadow-glass: 0 0 50px rgba(0, 0, 0, 0.05);
+}
+
+.dark {
+  --color-base: #0b0b0f;
+  --color-muted: #111217;
+  --color-border: #2e2f35;
+  --color-card: rgba(17, 18, 23, 0.6);
+  --color-heading: #f3f4f6;
+  --color-text: #d1d5db;
+  --color-accent: #818cf8;
+  --color-accent-glow: #c7d2fe;
+  --color-gradient: linear-gradient(135deg, #1e1f24, #0b0b0f);
+  --glass-blur: blur(16px);
+  --glass-bg: rgba(17, 18, 23, 0.5);
+  --shadow-glow: 0 0 25px rgba(129, 140, 248, 0.4);
+  --shadow-glass: 0 0 60px rgba(255, 255, 255, 0.05);
 }

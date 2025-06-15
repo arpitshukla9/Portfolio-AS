@@ -17,6 +17,7 @@ function Header() {
     { id: "collab", label: "Collab" },
     { id: "work", label: "Work" },
     { id: "thinking", label: "Thinking" },
+    { id: "playground", label: "Playground" },
     { id: "lab", label: "Lab" },
     { id: "blog", label: "Blog" },
     { id: "contact", label: "Contact" },
@@ -81,45 +82,48 @@ function Header() {
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 ${
         scrolled
-          ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl shadow-lg shadow-black/10 dark:shadow-gray-800/10 border-b border-white/20 dark:border-gray-700/20"
-          : "bg-gradient-to-r from-slate-50/90 to-white/90 dark:from-gray-900/90 dark:to-gray-800/90 backdrop-blur-lg"
+          ? "bg-skin-base/95 backdrop-blur-xl shadow-[var(--shadow-glass)] border-b border-skin-border"
+          : "bg-skin-gradient backdrop-blur-lg"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
-        <div className="flex items-center justify-between gap-4 flex-wrap">
-          <div className="flex items-center">
-            <div className="p-[2px] rounded-full bg-gradient-to-tr from-emerald-400 via-teal-400 to-cyan-400">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3">
+        <div className="flex items-center justify-between gap-3 sm:gap-4">
+          {/* Logo */}
+          <div className="flex items-center flex-shrink-0">
+            <div className="p-[2px] rounded-full bg-skin-accent">
               <img
                 src="/images/logo.jpg"
                 alt="Logo"
-                className="w-12 h-12 rounded-full object-cover bg-white p-1 shadow-md hover:scale-105 hover:shadow-cyan-400 transition-transform duration-300"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover bg-white p-1 shadow-md hover:scale-105 transition-transform duration-300"
               />
             </div>
           </div>
-
-          <div className="scale-90 md:scale-75 max-w-xs">
-            <SurpriseModal />
+          <div className="w-full flex justify-center items-center p-2 sm:p-4">
+            <div className="scale-60 sm:scale-70 md:scale-90 transition-transform duration-300 ease-in-out max-w-[180px] sm:max-w-xs md:max-w-sm w-full">
+              <SurpriseModal />
+            </div>
           </div>
 
-          <nav className="hidden lg:flex items-center">
-            <ul className="flex items-center space-x-1 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl px-2 py-2 shadow-lg shadow-black/5 dark:shadow-gray-900/10 border border-white/20 dark:border-gray-700/20">
+          {/* Navigation Links */}
+          <nav className="hidden md:flex items-center mx-auto">
+            <ul className="flex items-center space-x-1 bg-skin-card backdrop-blur-sm rounded-2xl px-2 py-2 shadow-[var(--shadow-glass)] border border-skin-border">
               {navItems.map((item) => (
                 <li key={item.id} className="relative">
                   <motion.button
                     onClick={() => handleNavClick(item.id)}
                     onHoverStart={() => setHoveredItem(item.id)}
                     onHoverEnd={() => setHoveredItem(null)}
-                    className={`relative px-5 py-2.5 text-sm font-semibold rounded-xl transition-all duration-300 group overflow-hidden ${
+                    className={`relative px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all duration-300 group overflow-hidden ${
                       activeItem === item.id
-                        ? "text-white dark:text-gray-900 shadow-lg shadow-emerald-500/25 dark:shadow-emerald-400/25"
-                        : "text-slate-700 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white"
+                        ? "text-skin-base "
+                        : "text-skin-text hover:text-skin-heading"
                     }`}
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     {activeItem === item.id && (
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 dark:from-emerald-400 dark:via-teal-400 dark:to-cyan-400 rounded-xl"
+                        className="absolute inset-0 bg-skin-accent rounded-xl"
                         layoutId="activeNavItem"
                         transition={{
                           type: "spring",
@@ -135,37 +139,38 @@ function Header() {
             </ul>
           </nav>
 
-          <div className="flex items-center gap-3">
-            <div className="hidden lg:block">
+          {/* Theme Toggle + Mobile Toggle */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="hidden md:block">
               <ThemeToggle />
             </div>
             <motion.div
-              className="lg:hidden"
+              className="md:hidden"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2.5 rounded-xl bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border border-white/20 dark:border-gray-700/20 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="p-2 rounded-xl bg-skin-card backdrop-blur-sm border border-skin-border shadow-[var(--shadow-glass)] transition-all duration-300"
                 aria-label="Toggle menu"
               >
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <motion.div
-                    className="w-6 h-0.5 bg-slate-700 dark:bg-gray-300 rounded-full"
+                    className="w-5 h-0.5 bg-skin-text rounded-full"
                     animate={{
                       rotate: mobileMenuOpen ? 45 : 0,
-                      y: mobileMenuOpen ? 7 : 0,
+                      y: mobileMenuOpen ? 6 : 0,
                     }}
                   />
                   <motion.div
-                    className="w-6 h-0.5 bg-slate-700 dark:bg-gray-300 rounded-full"
+                    className="w-5 h-0.5 bg-skin-text rounded-full"
                     animate={{ opacity: mobileMenuOpen ? 0 : 1 }}
                   />
                   <motion.div
-                    className="w-6 h-0.5 bg-slate-700 dark:bg-gray-300 rounded-full"
+                    className="w-5 h-0.5 bg-skin-text rounded-full"
                     animate={{
                       rotate: mobileMenuOpen ? -45 : 0,
-                      y: mobileMenuOpen ? -7 : 0,
+                      y: mobileMenuOpen ? -6 : 0,
                     }}
                   />
                 </div>
@@ -174,6 +179,7 @@ function Header() {
           </div>
         </div>
 
+        {/* Mobile Menu */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
@@ -181,9 +187,9 @@ function Header() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="lg:hidden overflow-hidden mt-4"
+              className="md:hidden overflow-hidden mt-3"
             >
-              <motion.ul className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg rounded-2xl p-2 shadow-xl shadow-black/10 dark:shadow-gray-900/10 border border-white/20 dark:border-gray-700/20">
+              <motion.ul className="bg-skin-card backdrop-blur-lg rounded-2xl p-2 shadow-[var(--shadow-glass)] border border-skin-border">
                 {navItems.map((item) => (
                   <motion.li
                     key={item.id}
@@ -193,15 +199,15 @@ function Header() {
                   >
                     <button
                       onClick={() => handleNavClick(item.id)}
-                      className={`relative w-full px-5 py-3.5 text-sm font-semibold rounded-xl transition-all duration-300 group overflow-hidden ${
+                      className={`relative w-full px-4 py-3 text-sm font-semibold rounded-xl transition-all duration-300 group overflow-hidden ${
                         activeItem === item.id
-                          ? "text-white dark:text-gray-900 shadow-md shadow-emerald-500/20 dark:shadow-emerald-400/20"
-                          : "text-slate-700 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white"
+                          ? "text-skin-base "
+                          : "text-skin-text hover:text-skin-heading"
                       }`}
                     >
                       {activeItem === item.id && (
                         <motion.div
-                          className="absolute inset-0 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 dark:from-emerald-400 dark:via-teal-400 dark:to-cyan-400 rounded-xl"
+                          className="absolute inset-0 bg-skin-accent rounded-xl"
                           layoutId="activeMobileNavItem"
                           transition={{
                             type: "spring",
@@ -214,8 +220,7 @@ function Header() {
                     </button>
                   </motion.li>
                 ))}
-
-                <li className="mt-3 px-4">
+                <li className="mt-2 px-3">
                   <ThemeToggle />
                 </li>
               </motion.ul>

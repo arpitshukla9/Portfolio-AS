@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Linkedin,
   Github,
@@ -6,111 +6,135 @@ import {
   Sparkles,
   Code2,
   Palette,
-} from 'lucide-react';
-import CardDemo from '../components/ui/cards-demo-1.jsx';
-import SurpriseQuote from './ui/surprise-qoute.jsx';
+} from "lucide-react";
+import CardDemo from "../components/ui/cards-demo-1.jsx";
 
 function Body() {
   return (
-   <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 p-8 md:p-12 lg:p-16">
-      <div className="max-w-7xl mx-auto mt-12">
+    <div className="min-h-screen bg-skin-gradient text-skin-text transition-colors duration-300 px-4 py-8 sm:px-6 sm:py-10 md:px-8 md:py-12 lg:px-12 lg:py-16 ">
+      <div className="max-w-7xl mx-auto mt-8 sm:mt-10 md:mt-12">
         {/* Social Links */}
-        <div className="flex justify-center lg:justify-start mb-12">
-          <div className="flex space-x-6">
-            <a
-              href="https://www.linkedin.com/in/9arpitshukla"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group p-3 rounded-xl bg-white/70 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={24} className="text-blue-600 group-hover:text-blue-700" />
-            </a>
-            <a
-              href="https://instagram.com/thetaaverse"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group p-3 rounded-xl bg-white/70 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
-              aria-label="Instagram"
-            >
-              <Instagram size={24} className="text-pink-500 group-hover:text-pink-600" />
-            </a>
-            <a
-              href="https://github.com/arpitshukla9"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group p-3 rounded-xl bg-white/70 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
-              aria-label="GitHub"
-            >
-              <Github size={24} className="text-slate-700 group-hover:text-slate-900" />
-            </a>
+        <div className="flex justify-center lg:justify-start mb-8 sm:mb-10 md:mb-12">
+          <div className="flex space-x-4 sm:space-x-5 md:space-x-6">
+            {[
+              {
+                href: "https://www.linkedin.com/in/9arpitshukla",
+                icon: Linkedin,
+                color: "text-blue-600 group-hover:text-blue-700",
+              },
+              {
+                href: "https://instagram.com/thetaaverse",
+                icon: Instagram,
+                color: "text-pink-500 group-hover:text-pink-600",
+              },
+              {
+                href: "https://github.com/arpitshukla9",
+                icon: Github,
+                color: "text-skin-text group-hover:text-skin-heading",
+              },
+            ].map(({ href, icon: Icon, color }, index) => (
+              <a
+                key={index}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-2 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl bg-glass shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 sm:hover:scale-110"
+              >
+                <Icon size={20} className={`${color} w-5 h-5 sm:w-6 sm:h-6`} />
+              </a>
+            ))}
           </div>
         </div>
 
         {/* Main Content */}
-        <main className="flex flex-col lg:flex-row gap-16 items-center">
+        <main className="flex flex-col lg:flex-row gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
           {/* Left Content */}
-          <div className="lg:w-1/2 space-y-10 text-center lg:text-left">
-            <div className="space-y-6">
-              <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
-                <Sparkles className="text-indigo-500 animate-pulse" size={28} />
-                <span className="text-sm font-semibold text-indigo-600 tracking-wider uppercase">
+          <div className="lg:w-1/2 space-y-6 sm:space-y-8 md:space-y-10 text-center lg:text-left">
+            <div className="space-y-4 sm:space-y-5 md:space-y-6">
+              <div className="flex items-center justify-center lg:justify-start gap-2 sm:gap-3 mb-2 sm:mb-3 md:mb-4">
+                <Sparkles
+                  className="text-skin-accent animate-pulse"
+                  size={20}
+                />
+                <span className="text-xs sm:text-sm font-semibold text-skin-accent tracking-wider uppercase">
                   Portfolio
                 </span>
               </div>
 
-              <h1 className="text-5xl md:text-6xl font-extrabold">
-                <span className="bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
+                <span className="bg-gradient-to-r from-skin-heading to-skin-text bg-clip-text text-transparent">
                   Hello, I'm
                 </span>
                 <br />
-                <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent bg-clip-text text-transparent animate-gradient">
+                <span className="bg-gradient-to-r from-skin-accent via-skin-glow to-cyan-500 bg-clip-text text-transparent animate-gradient">
                   Arpit Shukla
                 </span>
               </h1>
 
-              <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                A passionate full-stack developer in my learning and building phase.
-                I specialize in real-time applications, modern UI/UX, and scalable
-                microservice architectures. Currently exploring AI integrations,
-                system design principles, and performance-first development. I build
-                with intention, learn by doing, and turn ambitious ideas into
-                high-impact products.
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0 text-skin-text">
+                A passionate full-stack developer in my learning and building
+                phase. I specialize in real-time applications, modern UI/UX, and
+                scalable microservice architectures. Currently exploring AI
+                integrations, system design principles, and performance-first
+                development.
               </p>
 
-              <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                <div className="flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full shadow-md">
-                  <Code2 size={16} className="text-indigo-500" />
-                  <span className="text-sm font-medium text-slate-700">Developer</span>
+              <div className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
+                <div className="flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-2 bg-skin-muted rounded-lg shadow-sm">
+                  <Code2 size={14} className="text-skin-accent" />
+                  <span className="text-xs sm:text-sm font-medium text-skin-heading">
+                    Developer
+                  </span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full shadow-md">
-                  <Palette size={16} className="text-purple-500" />
-                  <span className="text-sm font-medium text-slate-700">Designer</span>
+                <div className="flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-2 bg-skin-muted rounded-lg shadow-sm">
+                  <Palette size={14} className="text-purple-500" />
+                  <span className="text-xs sm:text-sm font-medium text-skin-heading">
+                    Designer
+                  </span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Right Component - CardDemo */}
-          <div className="lg:w-1/2 w-full max-w-lg">
+          <div className="lg:w-1/2 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
             <CardDemo />
           </div>
         </main>
 
         {/* Stats Section */}
-        <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="p-6 bg-white/40 backdrop-blur-sm rounded-2xl border border-white/30 text-center shadow">
-            <div className="text-3xl font-bold text-indigo-600 mb-2">10+</div>
-            <div className="text-slate-600">Projects Completed</div>
-          </div>
-          <div className="p-6 bg-white/40 backdrop-blur-sm rounded-2xl border border-white/30 text-center shadow">
-            <div className="text-3xl font-bold text-purple-600 mb-2">1.5+</div>
-            <div className="text-slate-600">Years Experience</div>
-          </div>
-          <div className="p-6 bg-white/40 backdrop-blur-sm rounded-2xl border border-white/30 text-center shadow">
-            <div className="text-3xl font-bold text-cyan-600 mb-2">100%</div>
-            <div className="text-slate-600">Client Satisfaction</div>
-          </div>
+        <div className="mt-12 sm:mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+          {[
+            {
+              value: "10+",
+              label: "Projects Completed",
+              color: "text-skin-accent",
+            },
+            {
+              value: "1.5+",
+              label: "Years Experience",
+              color: "text-purple-500",
+            },
+            {
+              value: "100%",
+              label: "Client Satisfaction",
+              color: "text-cyan-500",
+            },
+          ].map((stat, i) => (
+            <div
+              key={i}
+              className="p-4 sm:p-5 md:p-6 bg-glass rounded-xl sm:rounded-2xl border border-skin-border text-center shadow-[var(--shadow-glass)]"
+            >
+              <div
+                className={`text-2xl sm:text-3xl font-bold mb-1 sm:mb-2 ${stat.color}`}
+              >
+                {stat.value}
+              </div>
+              <div className="text-sm sm:text-base text-skin-text">
+                {stat.label}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

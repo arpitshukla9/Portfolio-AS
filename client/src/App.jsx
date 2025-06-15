@@ -9,6 +9,7 @@ import BlogPage from './pages/BlogPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import Collab from './pages/Collab.jsx';
 import { ThemeProvider } from './context/ThemeContext.jsx'; 
+import InfoCode from './pages/InfoCode.jsx';
 import BlogPost from './components/Blog.jsx';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/collab" element={<Collab />} />
+          <Route path="/info" element={<InfoCode />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         </Routes>
       </BrowserRouter>

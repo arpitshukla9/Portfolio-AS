@@ -8,7 +8,8 @@ import Blog from "../components/Blog.jsx";
 import Skills from "../components/Skills.jsx";
 import ThemeToggle from "../components/ThemeToggle.jsx";
 import CollabTogether from "../components/CollabTogether.jsx"
-
+import CodingQues from "../components/Playground.jsx";
+import AIBotAvatar from "../components/AiBot.jsx";
 function Homepage() {
   return (
     <div className="min-h-screen bg-base-100 text-base-content transition-colors duration-300">
@@ -27,6 +28,9 @@ function Homepage() {
         <section id="thinking">
           <Thinking />
         </section>
+        <section id="playground">
+          <CodingQues />
+        </section>
         <section id="lab">
           <Skills />
         </section>
@@ -37,6 +41,8 @@ function Homepage() {
           <ContactForm />
         </section>
       </main>
+       <AIBotAvatar />
+       
     </div>
   );
 }

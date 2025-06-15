@@ -1,81 +1,76 @@
 import daisyui from "daisyui";
 
-/** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class',
+  darkMode: "class",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-            keyframes: {
+      keyframes: {
         move: {
-          '0%': { transform: 'translateX(-200px)' },
-          '100%': { transform: 'translateX(200px)' },
+          "0%": { transform: "translateX(-200px)" },
+          "100%": { transform: "translateX(200px)" },
         },
       },
       animation: {
-        move: 'move 5s linear infinite',
+        move: "move 5s linear infinite",
       },
-
       fontFamily: {
-      roxborough: ['RoxboroughCF', 'serif'],
+        roxborough: ["RoxboroughCF", "serif"],
+      },
+      zIndex: {
+        10: "10",
+        20: "20",
+        25: "25",
+        26: "26",
+        40: "40",
+        50: "50",
+        60: "60",
+        80: "80",
+        100: "100",
+        120: "120",
+      },
+      colors: {
+        skin: {
+          base: "var(--color-base)",
+          muted: "var(--color-muted)",
+          border: "var(--color-border)",
+          card: "var(--color-card)",
+          heading: "var(--color-heading)",
+          text: "var(--color-text)",
+          accent: "var(--color-accent)",
+          glow: "var(--color-accent-glow)",
+          glow: {
+            purple: "rgba(167, 139, 250, 0.15)",
+            blue: "rgba(96, 165, 250, 0.15)",
+            amber: "rgba(251, 191, 36, 0.15)",
+            emerald: "rgba(52, 211, 153, 0.15)",
+          },
+        },
+      },
+      backgroundImage: {
+        "skin-gradient": "var(--color-gradient)",
+      },
     },
   },
-  translate: {
-        'z-10': '10px',
-        'z-20': '20px',
-        'z-25': '25px',
-        'z-26': '26px',
-        'z-40': '40px',
-        'z-50': '50px',
-        'z-60': '60px',
-        'z-80': '80px',
-        'z-100': '100px',
-        'z-120': '120px',
-      },
-    },
-  darkMode: "class",
   variants: {
     extend: {
-      translate: ['responsive', 'hover', 'focus'],
-      animation: ['responsive', 'hover', 'focus'],
+      translate: ["responsive", "hover", "focus"],
+      animation: ["responsive", "hover", "focus"],
     },
   },
-  plugins: [daisyui],
-  daisyui: {
-    themes: [
-      "light",
-      "dark",
-      "cupcake",
-      "bumblebee",
-      "emerald",
-      "corporate",
-      "synthwave",
-      "retro",
-      "cyberpunk",
-      "valentine",
-      "halloween",
-      "garden",
-      "forest",
-      "aqua",
-      "lofi",
-      "pastel",
-      "fantasy",
-      "wireframe",
-      "black",
-      "luxury",
-      "dracula",
-      "cmyk",
-      "autumn",
-      "business",
-      "acid",
-      "lemonade",
-      "night",
-      "coffee",
-      "winter",
-      "dim",
-      "nord",
-      "sunset",
-    ],
-  },
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        ".bg-glass": {
+          backgroundColor: "var(--glass-bg)",
+          backdropFilter: "blur(var(--glass-blur))",
+          WebkitBackdropFilter: "blur(var(--glass-blur))",
+        },
+        ".blur-glass": {
+          backdropFilter: "blur(var(--glass-blur))",
+          WebkitBackdropFilter: "blur(var(--glass-blur))",
+        },
+      });
+    },
+  ],
 };
-      

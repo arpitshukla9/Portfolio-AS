@@ -22,7 +22,7 @@ export default function CardDemo() {
           loop
           muted
           className="absolute inset-0 w-full h-full object-cover object-center opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-          src="/cardvideo.mp4"
+          src="/videos/cardvideo.mp4"
           alt="Hover"
           type="video/mp4"
           playsInline

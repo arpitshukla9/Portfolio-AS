@@ -1,100 +1,122 @@
 import React from "react";
-import "./thinkingcard.css";
+import { motion } from "framer-motion";
+import { Instagram, Linkedin, Code2, Cpu, Rocket, Layers } from "lucide-react";
 
 const cardData = [
   {
     title: "Product Visionary & Builder",
     text: "Building next-gen platforms like ThetaVerse and InstaDukan — empowering India's digital creators with seamless, scalable, and delightful tools.",
     instagram: "https://instagram.com/thetaaverse",
-    github: "https://github.com/arpitshukla9",
+    linkedin: "https://linkedin.com/in/arpitshukla9",
+    icon: <Rocket className="w-6 h-6 text-purple-400" />,
+    accent: "purple-400",
+    border: "border-purple-500/20",
+    hover: "hover:border-purple-400/30"
   },
   {
     title: "Generative AI Integrator",
     text: "Integrating GenAI into real-world products — from conversational UI to AI-led editors — to drive intelligent user experiences and automate creation workflows.",
     instagram: "https://instagram.com/thetaaverse",
-    github: "https://github.com/arpitshukla9",
+    linkedin: "https://linkedin.com/in/arpitshukla9",
+    icon: <Cpu className="w-6 h-6 text-blue-400" />,
+    accent: "blue-400",
+    border: "border-blue-500/20",
+    hover: "hover:border-blue-400/30"
   },
   {
     title: "DevOps & Microservices Architect",
     text: "Designing scalable, containerized systems with CI/CD, microservices, and observability — ensuring high availability and performance.",
     instagram: "https://instagram.com/thetaaverse",
-    github: "https://github.com/arpitshukla9",
+    linkedin: "https://linkedin.com/in/arpitshukla9",
+    icon: <Layers className="w-6 h-6 text-amber-400" />,
+    accent: "amber-400",
+    border: "border-amber-500/20",
+    hover: "hover:border-amber-400/30"
   },
   {
     title: "Full-Cycle Indie Engineer",
     text: "From wireframes to deployment, I independently own product development — optimizing for speed, clarity, and founder-first execution.",
     instagram: "https://instagram.com/thetaaverse",
-    github: "https://github.com/arpitshukla9",
+    linkedin: "https://linkedin.com/in/arpitshukla9",
+    icon: <Code2 className="w-6 h-6 text-emerald-400" />,
+    accent: "emerald-400",
+    border: "border-emerald-500/20",
+    hover: "hover:border-emerald-400/30"
   },
 ];
 
+const cardVariants = {
+  offscreen: { y: 50, opacity: 0 },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: { type: "spring", bounce: 0.4, duration: 0.8 }
+  }
+};
+
 const ThinkingCard = () => {
   return (
-    <div className="cards-grid">
-      {cardData.map((card, index) => (
-        <div className="parent" key={index}>
-          <div className="card">
-            <div className="glass"></div>
-            <div className="content">
-              <span className="title">{card.title}</span>
-              <span className="text">{card.text}</span>
-            </div>
-            <div className="bottom">
-              <div className="social-buttons-container">
-                <a
-                  href={card.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-button social-button4"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="svg"
-                    viewBox="0 0 448 512"
-                  >
-                    <path
-                      d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9 0 63.6 51.3 114.9 114.9 114.9 
-           63.6 0 114.9-51.3 114.9-114.9 0-63.6-51.3-114.9-114.9-114.9zM398.8 97.2c0 
-           14.9-12.1 27-27 27s-27-12.1-27-27c0-14.9 12.1-27 27-27s27 12.1 27 27zM224.1 
-           338c-62.7 0-113.9-51.1-113.9-113.9 0-62.7 51.1-113.9 113.9-113.9 
-           62.7 0 113.9 51.1 113.9 113.9 0 62.7-51.1 113.9-113.9 113.9zM398.8 
-           96c-1.7-35.3-9.9-66.7-36.2-92.9C336.9 6.9 305.6-1.7 270.3 0 
-           234 1.7 204.6 0 172.3 0 140 0 110.6 1.7 76.1 0c-35.3-1.7-66.7 6.9-92.9 
-           33.1C-20.6 62.4-28.8 93.7-30.5 129c-1.7 36.3 0 65.7 0 98s-1.7 61.7 0 
-           98c1.7 35.3 9.9 66.7 36.2 92.9 26.2 26.2 57.6 34.4 92.9 
-           36.2 36.3 1.7 65.7 0 98 0s61.7 1.7 98 0c35.3-1.7 66.7-9.9 
-           92.9-36.2 26.2-26.2 34.4-57.6 36.2-92.9 1.7-36.3 0-65.7 
-           0-98s1.7-61.7 0-98z"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href={card.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-button social-button5"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="svg"
-                    viewBox="0 0 448 512"
-                  >
-                    <path
-                      d="M100.28 448H7.4V148.9h92.88zM447.8 448h-92.4V302.4
-                    c0-34.7-12.4-58.4-43.4-58.4-23.6
-                    0-37.6 15.9-43.8 31.3-2.3 5.6-2.8 13.4-2.8
-                    21.2V448h-92.4s1.2-258.4
-                    0-285h92.4v40.4c12.3-18.9 34.4-45.8
-                    83.6-45.8 61 0 106.7 39.8
-                    106.7 125.4V448z"
-                    />
-                  </svg>
-                </a>
+    <div
+      className="relative overflow-hidden py-20 px-4 sm:px-6 lg:px-8"
+      style={{ background: "var(--color-gradient)" }}
+    >
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-20 -left-20 w-96 h-96 bg-purple-900 rounded-full blur-3xl opacity-10 animate-float" />
+        <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-blue-900 rounded-full blur-3xl opacity-10 animate-float-delay" />
+      </div>
+      <div className="relative max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {cardData.map((card, index) => (
+            <motion.div
+              key={index}
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={cardVariants}
+              transition={{ delay: index * 0.1 }}
+              className={`relative group h-full p-6 rounded-3xl backdrop-blur-lg border ${card.border} ${card.hover} shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_50px_rgba(109,40,217,0.2)] transition-all duration-500`}
+            >
+              <div className="absolute inset-0 overflow-hidden rounded-3xl">
+                <div className={`absolute -inset-1 bg-gradient-to-br from-${card.accent} to-transparent opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-700 rounded-3xl`} />
               </div>
-            </div>
-          </div>
+              <div className="relative z-10 h-full flex flex-col">
+                <div className="mb-4 p-3 w-12 h-12 flex items-center justify-center bg-transparent rounded-xl shadow-lg border border-gray-600/30">
+                  {card.icon}
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+                  {card.title}
+                </h3>
+                <p className="text-gray-700 dark:text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+                  {card.text}
+                </p>
+                <div className="flex space-x-3 mt-auto">
+                  <motion.a
+                    href={card.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -3 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-700/20 dark:bg-gray-700 backdrop-blur-md border border-gray-600/30 text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-all duration-300 shadow-lg"
+                  >
+                    <Instagram className="w-5 h-5" />
+                  </motion.a>
+                  <motion.a
+                    href={card.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -3 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-700/20 dark:bg-gray-700 backdrop-blur-md border border-gray-600/30 text-gray-600 dark:text-gray-300 hover:text-sky-500 transition-all duration-300 shadow-lg"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </motion.a>
+                </div>
+              </div>
+              <div className={`absolute -bottom-5 -right-5 w-24 h-24 rounded-full bg-${card.accent} opacity-10 blur-2xl group-hover:opacity-20 transition-opacity duration-700`} />
+            </motion.div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 };
