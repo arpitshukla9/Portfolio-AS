@@ -66,9 +66,10 @@ function Body() {
                   Hello, I'm
                 </span>
                 <br />
-                <span className="bg-gradient-to-r from-skin-accent via-skin-glow to-cyan-500 bg-clip-text text-transparent animate-gradient">
-                  Arpit Shukla
-                </span>
+               <span className="bg-gradient-to-r from-skin-accent via-skin-glow to-cyan-500 bg-clip-text text-transparent animate-gradient typewriter-loop">
+  Arpit Shukla
+</span>
+
               </h1>
 
               <p className="text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0 text-skin-text">

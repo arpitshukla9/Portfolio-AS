@@ -1,8 +1,9 @@
-import { StrictMode, useEffect } from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './App.jsx';
-import './index.css';
-import { ThemeProvider } from './context/ThemeContext.jsx';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import { ThemeProvider } from "./context/ThemeContext.jsx";
+import { Toaster } from "react-hot-toast"; 
 
 const initTheme = () => {
   const savedTheme = localStorage.getItem("theme") || "light";
@@ -12,10 +13,11 @@ const initTheme = () => {
 
 initTheme();
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <ThemeProvider>
     <StrictMode>
-    <App />
+      <App />
+      <Toaster position="bottom-right" reverseOrder={false} /> 
     </StrictMode>
   </ThemeProvider>
 );

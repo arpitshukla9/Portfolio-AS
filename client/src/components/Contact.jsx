@@ -42,13 +42,14 @@ const ContactUs = () => {
     "Consulting",
   ];
 
-  const budgetOptions = [
-    "< $350",
-    "$400 - $750",
-    "$750 - $1000",
-    "$1000+",
-    "Not Sure",
-  ];
+const budgetOptions = [
+  "Under $300 / ₹25,000",
+  "$300 – $600 / ₹25,000 – ₹50,000",
+  "$600 – $900 / ₹50,000 – ₹75,000",
+  "$900+ / ₹75,000+",
+  "Open to Discussion / Not Sure",
+];
+
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

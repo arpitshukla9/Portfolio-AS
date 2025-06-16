@@ -240,8 +240,8 @@ const SurpriseModal = () => {
   useEffect(() => {
     if (showModal) {
       document.body.style.overflow = "hidden";
-      // Only add padding if needed (not on mobile)
-      if (window.innerWidth > 640) {
+      // Only add padding if needed (not on mobile or if scrollbar is overlay)
+      if (window.innerWidth > 640 && document.body.scrollHeight > document.body.clientHeight) {
         document.body.style.paddingRight = "15px";
       }
     } else {
@@ -253,7 +253,7 @@ const SurpriseModal = () => {
       document.body.style.overflow = "auto";
       document.body.style.paddingRight = "0";
     };
-  }, [showModal]);
+  }, [showModal, windowSize.width]);
 
   return (
     <div className="w-full flex justify-center px-4">
@@ -291,7 +291,7 @@ const SurpriseModal = () => {
       <AnimatePresence>
         {showModal && (
           <motion.div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[999] flex items-end sm:items-center justify-center p-0 sm:p-4"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[999] flex items-center justify-center p-0 sm:p-4 min-h-screen" 
             onClick={closeModal}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -301,16 +301,15 @@ const SurpriseModal = () => {
             <motion.div
               className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto rounded-t-2xl sm:rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 relative overflow-hidden flex flex-col"
               style={{
-                maxHeight: "90vh",
-                height: windowSize.height > 600 ? "auto" : "85vh",
-                marginTop: windowSize.width < 640 ? "auto" : "0",
+                maxHeight: "70vh", 
+                marginTop: "0",
                 marginLeft: "0",
                 marginRight: "0",
               }}
               initial={{
                 scale: 0.95,
                 opacity: 0,
-                y: windowSize.width < 640 ? 100 : 20,
+                y: 10,
               }}
               animate={{
                 scale: 1,
@@ -320,7 +319,7 @@ const SurpriseModal = () => {
               exit={{
                 scale: 0.95,
                 opacity: 0,
-                y: windowSize.width < 640 ? 100 : 20,
+                y: 20, // Simplified exit y value
               }}
               transition={{
                 type: "spring",
@@ -336,7 +335,6 @@ const SurpriseModal = () => {
               />
 
               <div className="relative z-10 p-4 sm:p-6 md:p-8 flex-1 flex flex-col overflow-y-auto">
-                {/* Close Button */}
                 <button
                   onClick={closeModal}
                   className="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 p-1 sm:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
@@ -345,7 +343,6 @@ const SurpriseModal = () => {
                   <X className="w-5 h-5" />
                 </button>
 
-                {/* Header */}
                 <div className="mb-4 sm:mb-6">
                   <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                     <div
@@ -370,7 +367,6 @@ const SurpriseModal = () => {
                   )}
                 </div>
 
-                {/* Main Content */}
                 {loading ? (
                   <div className="flex-1 flex flex-col items-center justify-center py-6 sm:py-8">
                     <motion.div
@@ -388,6 +384,7 @@ const SurpriseModal = () => {
                       transition={{
                         duration: 2,
                         repeat: Infinity,
+                        ease: "linear",
                       }}
                     >
                       Loading wisdom...
@@ -427,7 +424,6 @@ const SurpriseModal = () => {
                       )}
                     </div>
 
-                    {/* Refresh Button */}
                     <motion.button
                       onClick={refreshQuote}
                       whileHover={{

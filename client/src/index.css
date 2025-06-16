@@ -49,6 +49,37 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+  .typewriter-loop {
+    display: inline-block;
+    overflow: hidden;
+    border-right: 2px solid currentColor;
+    white-space: nowrap;
+    animation: typing 4s steps(12, end) infinite, blink 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+    0% {
+      width: 0;
+    }
+    50% {
+      width: 100%;
+    }
+    60% {
+      width: 100%;
+    }
+    100% {
+      width: 0;
+    }
+  }
+
+  @keyframes blink {
+    0%, 100% {
+      border-color: currentColor;
+    }
+    50% {
+      border-color: transparent;
+    }
+  }
 }
 
 /* Color theme variables */
@@ -82,4 +113,26 @@
   --glass-bg: rgba(17, 18, 23, 0.5);
   --shadow-glow: 0 0 25px rgba(129, 140, 248, 0.4);
   --shadow-glass: 0 0 60px rgba(255, 255, 255, 0.05);
+}
+
+
+.theta-ai-widget {
+  --theta-primary: #3b82f6;
+  --theta-secondary: #8b5cf6;
+}
+
+@media (max-width: 640px) {
+  .theta-ai-widget iframe {
+    height: calc(100vh - 140px) !important;
+  }
+}
+
+iframe::-webkit-scrollbar {
+  display: none; 
+}
+
+iframe {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;    
+  overflow: hidden;
 }
